@@ -13,6 +13,8 @@ import {
   TouchableOpacity,
   TextInput
 } from 'react-native';
+import TextState from './app/component/TextState';
+import BoxText from './app/component/BoxText';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -22,27 +24,18 @@ const instructions = Platform.select({
 });
 
 export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      text: '',
-    };
+  state = {
+    text: ''
+  }
+  changeText = (t) => {
+    this.setState({text:t})
   }
   render() {
     console.log(this.state.text);
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Please enter note here
-        </Text>
-        <TextInput
-          style={{width:200,height: 100, borderColor: 'gray', borderWidth: 1}}
-          onChangeText={(text) => this.setState({text})}
-          placeholderer="text"
-          multiline = {true}
-          numberOfLines = {4}
-          value = {this.state.text}
-        />
+        <BoxText changeText={this.changeText}/>
+        <TextState text={this.state.text}/>
       </View>
     );
   }
@@ -51,6 +44,7 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent:'flex-start',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
