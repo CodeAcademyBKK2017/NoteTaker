@@ -13,7 +13,8 @@ import {
   TextInput,
   style
 } from 'react-native';
-
+import Textstate from './app/component/Textstate';
+import Boxstate from './app/component/Boxstate';
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
     'Cmd+D or shake for dev menu',
@@ -22,25 +23,18 @@ const instructions = Platform.select({
 });
 
 export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { text: '' };
-  }
+    state = {
+      text: ''
+    };
+    nan =(t)=>{
+      this.setState({text:t});
+    }
   render() {
     console.log(this.state.text);
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Please enter 
-        </Text>
-          <TextInput
-          style={{width:250,height: 100, borderColor: 'gray', borderWidth: 1}}
-          onChangeText={(text) => this.setState({text})}
-          multiline = {true}
-          numberOfLines = {4}
-          value = {this.state.text}
-        />
-        
+      <Boxstate nan={this.nan}/>
+       <Textstate text={this.state.text} />
       </View>
     );
   }
