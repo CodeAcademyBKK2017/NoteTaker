@@ -10,7 +10,6 @@ import {
 class ShowText extends Component {
   render() {
     return (
-     
         <Text>
           You type: {this.props.text}
         </Text>

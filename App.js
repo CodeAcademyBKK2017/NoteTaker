@@ -5,6 +5,7 @@
  */
 
 import React, { Component } from 'react';
+import InputText from './app/component/inputText';
 import ShowText from './app/component/showText';
 import {
   Platform,
@@ -21,7 +22,7 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-export default class App extends Component<{}> {
+export default class App extends Component {
   state = {
     text: ''
   }
@@ -31,13 +32,9 @@ export default class App extends Component<{}> {
    }
 
   render() {
-    console.log(this.state.text);
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Please enter your note here
-        </Text>
-        <TextInput style={styles.instructions} onChangeText = {this.changeText}/>
+        <InputText changeText={this.changeText}/>
         <ShowText text={this.state.text}/>
       </View>
     );
