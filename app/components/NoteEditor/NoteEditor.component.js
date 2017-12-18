@@ -5,8 +5,9 @@ import {
 	View,
 	TextInput
 } from 'react-native';
+import NoteNotice from '../NoteNotice/NoteNotice.component';
 
-class NoteEditor extends Component {
+export default class NoteEditor extends Component<{}> {
 	state = {
 		note: ""
 	};
@@ -22,9 +23,7 @@ class NoteEditor extends Component {
 			<View style={styles.container}>
 				<Text>Title</Text>
 				<TextInput style={styles.textInput} onChangeText={this.onChangeText}/>
-				{
-					this.state.note ? <Text>You typed {this.state.note}</Text> : null
-				}
+				<NoteNotice note={this.state.note}/>
 			</View>
 		);
 	}
@@ -41,5 +40,3 @@ const styles = StyleSheet.create({
 		borderWidth: 1
 	},
 });
-
-export default NoteEditor;
