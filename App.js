@@ -12,6 +12,7 @@ import {
   View,
   TextInput
 } from 'react-native';
+import ShowText from './app/components/ShowTexts/showText.component'
 
 const instructions = Platform.select({
   ios: 'Please enter your note here',
@@ -41,6 +42,7 @@ export default class App extends Component {
         onChangeText={(text) => this.Logger(text)}
         value={this.state.text}
       />
+      <ShowText data={this.state.text}/>
       </View>
     );
   }
