@@ -9,8 +9,10 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  TextInput
 } from 'react-native';
+import NoteText from './src/components/NoteText/NoteText.component';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -20,48 +22,21 @@ const instructions = Platform.select({
 });
 
 export default class App extends Component<{}> {
-    onChangeText = (text) => {
-        console.log("input ", text);
-    }
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
-        <TextInput value="Test" style={[styles.inputText]} onChangeText={this.onChangeText}/>
+          <NoteText/>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-    inputText: {
-        width: 200,
-        height:100,
-        borderColor: 'gray',
-        borderWidth: 1
-    },
   container: {
+    width: '100%',
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
+    // alignItems: 'center',
     backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  }
 });
