@@ -12,6 +12,8 @@ import {
   View,
   TextInput
 } from 'react-native';
+import InputText from './app/componant/InputText/InputText';
+import BoxTyped from './app/componant/BoxTyped/BoxTyped';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -21,22 +23,21 @@ const instructions = Platform.select({
 });
 
 export default class App extends Component {
+  
+  state = {
+    textTyped: '...'
+  };
+
+  onChange = (v) => {
+    this.setState({textTyped: v})
+    console.log('state : ',this.state.textTyped)
+  };
+
   render() {
     return (
       <View style={styles.container}>
-        {/* <Text style={styles.welcome}>
-          Welcome to React Native !
-        </Text> */}
-        <Text style={styles.instructions}>
-          Plese enter your note here.
-        </Text>
-        <TextInput 
-          style={styles.textInput} 
-          placeholder={'Text here'}
-          onChangeText={(text) => {
-            console.log(text)
-          }}
-          />
+        <InputText onChange={this.onChange}/>
+        <BoxTyped text={this.state.textTyped}/>
       </View>
     );
   }
@@ -48,22 +49,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-  textInput: {
-    height: 100, 
-    width: 180,
-    borderColor: 'gray', 
-    borderWidth: 1
-
   }
 });
