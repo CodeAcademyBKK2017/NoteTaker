@@ -12,7 +12,7 @@ import {
   View,
   TextInput
 } from 'react-native';
-
+import TextArea from './app/components/TextArea/TextArea.component'
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
     'Cmd+D or shake for dev menu',
@@ -21,13 +21,17 @@ const instructions = Platform.select({
 });
 
 export default class App extends Component<{}> {
+  state = {
+    data : ''
+  }
+  showText  = (text) =>{
+    this.setState({data : text })
+  }
   render() {
-    console.log('This is Call');
     return (
       <View style={styles.container}>
-        <Text> Please enter your note here</Text>
-        <TextInput style={styles.textArea} onChangeText={(text)=>{console.log(text);}} >
-        </TextInput>
+        <TextArea onChangeText={this.showText}/>
+        <Text> {this.state.data !== '' ? 'You Type' : '' } {this.state.data}</Text>
       </View>
     );
   }
@@ -49,10 +53,5 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
-  },
-  textArea:{
-      width:300,
-    height:200,
-    borderWidth : 5,
   },
 });
