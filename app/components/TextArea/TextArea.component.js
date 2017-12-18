@@ -4,8 +4,8 @@ import {Text,TextInput,View,StyleSheet} from 'react-native';
 export default class TextArea extends Component<{}>{
     render(){
     return (
-        <View>
-            <Text> Please enter your note here</Text>
+        <View >
+            <Text style={styles.text}>Title</Text>
             <TextInput style={styles.textArea} onChangeText={this.props.onChangeText}></TextInput>
         </View>
         )
@@ -17,4 +17,9 @@ const styles = StyleSheet.create({
       height:200,
       borderWidth : 5,
     },
+    text:{
+        color:'green',
+        fontSize: 20,
+        textAlign: 'left'
+    }
 });
