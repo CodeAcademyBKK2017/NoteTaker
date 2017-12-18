@@ -11,7 +11,7 @@ export default class InputMessage extends Component<{}> {
         const { onChangeText } = this.props;
 
         return (
-            <View>
+            <View style={styles.container}>
                 <Text style={styles.title}>Title</Text>
                 <TextInput
                     style={{ height: 40 }}
@@ -26,6 +26,9 @@ export default class InputMessage extends Component<{}> {
 }
 
 const styles = StyleSheet.create({
+    container: {
+        width: '100%'
+    },
     title: {
         fontSize: 20,
     },
