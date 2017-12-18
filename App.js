@@ -5,6 +5,7 @@
  */
 
 import React, { Component } from 'react';
+import ShowText from './app/component/showText';
 import {
   Platform,
   StyleSheet,
@@ -21,15 +22,23 @@ const instructions = Platform.select({
 });
 
 export default class App extends Component<{}> {
-  
+  state = {
+    text: ''
+  }
+
+   changeText = (newValue) => {
+     this.setState({text: newValue});
+   }
+
   render() {
-    console.log('hello');
+    console.log(this.state.text);
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
           Please enter your note here
         </Text>
-        <TextInput style={styles.instructions} onChangeText={text => console.log(text)}/>
+        <TextInput style={styles.instructions} onChangeText = {this.changeText}/>
+        <ShowText text={this.state.text}/>
       </View>
     );
   }
