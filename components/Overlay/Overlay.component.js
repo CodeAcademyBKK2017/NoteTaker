@@ -23,14 +23,19 @@ const styles = {
 };
 
 class Overlay extends Component {
+    stopPropagation = (e) => e.stopPropagation();
     render() {
         return (
-            <Modal onRequestClose={() => {}}>
-                <View style={styles.container}>
-                    <View style={styles.innerContainer}>
-                        <Text style={styles.innerContainer__text}>Modal</Text>
+            <Modal visible={this.props.visible} onRequestClose={() => { }}>
+                <TouchableWithoutFeedback onPress={this.props.hideModal}>
+                    <View style={styles.container}>
+                        <TouchableWithoutFeedback onPress={this.stopPropagation}>
+                            <View style={styles.innerContainer}>
+                                <Text style={styles.innerContainer__text}>Modal</Text>
+                            </View>
+                        </TouchableWithoutFeedback>
                     </View>
-                </View>
+                </TouchableWithoutFeedback>
             </Modal>
         );
     }
