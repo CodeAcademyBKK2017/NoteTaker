@@ -13,7 +13,10 @@ import {
   StyleSheet,
   Text,
   View,
-  TextInput
+  TextInput,
+  TouchableOpacity,
+  Modal,
+  TouchableWithoutFeedback
 } from 'react-native';
 
 const instructions = Platform.select({
@@ -25,25 +28,39 @@ const instructions = Platform.select({
 
 export default class App extends Component {
   state = {
-    text: ''
+    text: '',
+    modalVisible: false
   }
 
    changeText = (newValue) => {
      this.setState({text: newValue});
    }
 
+
+  openModal = () => {
+    this.setState({modalVisible:true});
+  }
+
+  closeModal = () => {
+    this.setState({modalVisible:false});
+  }
+
   render() {
-    // return (
-    //   <View style={styles.container}>
-    //     <InputText changeText={this.changeText}/>
-    //     <ShowText text={this.state.text}/>
-    //   </View>
-    // );
-    return (
+ return (
+ <View style={styles.container}>
+    <InputText changeText={this.changeText}/>
+      <ShowText text={this.state.text}/>
+     
       <View>
-        <ModalUI/>
+          <ModalUI modalVisible={this.state.modalVisible} closeModal={this.closeModal} />
+          <TouchableOpacity onPress={this.openModal}>
+            <Text>XXX</Text>
+          </TouchableOpacity>
       </View>
-    );
+      
+   </View>
+   );
+  
   }
 }
 
@@ -52,16 +69,5 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F5FCFF',
     alignItems: 'center',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    marginTop: 20,
-  },
-  instructions: {
-    width: 200,
-    height:100,
-    borderColor: 'gray',
-    borderWidth: 1,
   },
 });

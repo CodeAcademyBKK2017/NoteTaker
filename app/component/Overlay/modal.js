@@ -7,48 +7,57 @@ import {
   TextInput,
   TouchableWithoutFeedback,
   TouchableOpacity,
-  Modal
+  Modal,
+  Button
 } from 'react-native';
 
 class ModalUI extends Component {
+     
+  stopPropagation = (e) => e.stopPropagation()
+  
   render() {
     return (
-        <Modal>
-            <View style={styles.container}>
+        <Modal visible={this.props.modalVisible} animationType={'slide'} onRequestClose={this.props.closeModal}>
+            <TouchableWithoutFeedback onPress = {this.props.closeModal}>
+            <View style={styles.containerModal}>
+                <TouchableWithoutFeedback onPress = {this.stopPropagation}>
                 <View style={styles.inner}>
-                    <Text style={styles.modal}>
-                        Modal 
-                    </Text>
-                </View>                   
+                <Text style={styles.modal}>
+                    <Text>This is content inside of modal component</Text>
+                </Text>
+                </View>
+                </TouchableWithoutFeedback>
             </View>
-        </Modal>
+            </TouchableWithoutFeedback>
+        </Modal>             
     );
   }
 }
 
 const styles = StyleSheet.create({
-    modal: {
-      fontSize: 14,
-      textAlign: 'center',
-      
-    },
-    inner: {
-        borderColor: 'gray',
-        borderWidth: 1,
-        justifyContent: 'center',
-        height: 200,
-      width: '100%',
-        backgroundColor: 'white'
-    },
-
-    container: {
-        backgroundColor: 'rgba(37, 8, 10, 0.78)',
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: 10
+   
+      modal: {
+        textAlign: 'center',
+        
       },
-  });
+      inner: {
+          borderColor: 'gray',
+          borderWidth: 1,
+          justifyContent: 'center',
+          height: 200,
+          width: '100%',
+          backgroundColor: 'white',
+      },
+    
+      containerModal: {
+          backgroundColor: 'rgba(37, 8, 10, 0.78)',
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center',
+          padding: 10
+        },
+    
+    });
 
 
 export default ModalUI;
