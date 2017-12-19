@@ -18,6 +18,7 @@ export default class InputText extends Component {
             onChangeText={this.props.onChange}
             multiline= {true}
             numberOfLines= {4}
+            underlineColorAndroid='transparent'
         />
         </View>
     );

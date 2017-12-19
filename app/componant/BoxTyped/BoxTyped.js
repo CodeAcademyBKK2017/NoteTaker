@@ -11,7 +11,7 @@ export default class BoxTyped extends Component {
   render() {
     return (
         <View>
-            <Text>You typed {this.props.text}</Text>
+            <Text>You typed {this.props.textTyped}</Text>
         </View>
     );
   }
