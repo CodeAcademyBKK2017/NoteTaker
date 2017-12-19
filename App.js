@@ -7,6 +7,7 @@
 import React, { Component } from 'react';
 import InputText from './app/component/inputText';
 import ShowText from './app/component/showText';
+import ModalUI from './app/component/Overlay/modal';
 import {
   Platform,
   StyleSheet,
@@ -32,10 +33,15 @@ export default class App extends Component {
    }
 
   render() {
+    // return (
+    //   <View style={styles.container}>
+    //     <InputText changeText={this.changeText}/>
+    //     <ShowText text={this.state.text}/>
+    //   </View>
+    // );
     return (
-      <View style={styles.container}>
-        <InputText changeText={this.changeText}/>
-        <ShowText text={this.state.text}/>
+      <View>
+        <ModalUI/>
       </View>
     );
   }
