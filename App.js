@@ -12,7 +12,8 @@ import {
   View,
   TextInput
 } from 'react-native';
-import TextArea from './app/components/TextArea/TextArea.component'
+import TextArea from './app/components/TextArea/TextArea.component';
+import DisplayText from './app/components/DisplayText/DisplayText.component'
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
     'Cmd+D or shake for dev menu',
@@ -31,7 +32,7 @@ export default class App extends Component<{}> {
     return (
       <View style={styles.container}>
         <TextArea onChangeText={this.showText}/>
-        <Text> {this.state.data !== '' ? 'You Type' : '' } {this.state.data}</Text>
+        <DisplayText text={this.state.data}/>
       </View>
     );
   }
