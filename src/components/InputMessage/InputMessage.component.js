@@ -16,7 +16,7 @@ export default class InputMessage extends Component<{}> {
                 <TextInput
                     style={{ height: 40 }}
                     multiline={true}
-                    placeholder="Type here to translate!"
+                    placeholder="Type here!"
                     onChangeText={this.props.onChangeText}
                     style={styles.textInput}
                 />

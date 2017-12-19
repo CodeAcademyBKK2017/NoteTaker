@@ -10,12 +10,15 @@ export default class TextMessage extends Component<{}> {
         const { text } = this.props;
 
         return (
-            <Text style={styles.text}>{text ? `Your typed: ${text}` : ''}</Text>
+            <View style={styles.container}> 
+                <Text style={styles.text}>{text ? `Your typed: ${text}` : ''}</Text>
+            </View>
         );
     }
 }
 
 const styles = StyleSheet.create({
-    text: {
+    container: {
+        width: '100%'
     }
 });
