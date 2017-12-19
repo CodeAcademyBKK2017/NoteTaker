@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
-import { Constants } from 'expo';
 import TextArea from './components/TextArea/TextArea.component.js';
 import TextInfo from './components/TextInfo/TextInfo.component.js';
 
@@ -29,7 +28,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'flex-start',
-    paddingTop: Constants.statusBarHeight,
+    paddingTop: 50,
     backgroundColor: '#ecf0f1',
   },
   paragraph: {
