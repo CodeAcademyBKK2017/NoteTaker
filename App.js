@@ -13,6 +13,7 @@ import {
   TextInput
 } from 'react-native';
 import NoteText from './src/components/NoteText/NoteText.component';
+import CustomModal from './src/components/Modal/Modal.component';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -26,6 +27,7 @@ export default class App extends Component<{}> {
     return (
       <View style={styles.container}>
           <NoteText/>
+          <CustomModal/>
       </View>
     );
   }
