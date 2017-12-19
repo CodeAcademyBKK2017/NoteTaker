@@ -1,13 +1,19 @@
 import React,{Component} from 'react';
-import {Text,View ,Modal,StyleSheet}from 'react-native';
+import {Text,View ,Modal,StyleSheet, TouchableWithoutFeedback}from 'react-native';
 
 export default class Overlay extends Component{
+    
     render(){
+        const {visible,onClose,onStay} = this.props
         return(
-            <Modal visible={this.props.visible}>
-                <View style={styles.modalContainer} >
-                    <Text style={styles.text}> MODAL </Text>
-                </View>        
+            <Modal visible={visible}  animationType={'slide'} >
+                <TouchableWithoutFeedback onPress={onClose}>
+                    <View style={styles.modalContainer}>
+                        <TouchableWithoutFeedback onPress={onStay}>
+                            <Text style={styles.text}> MODAL </Text>
+                        </TouchableWithoutFeedback>
+                    </View>        
+                </TouchableWithoutFeedback>
             </Modal>
         )
     }

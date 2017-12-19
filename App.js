@@ -30,12 +30,22 @@ export default class App extends Component<{}> {
   showText  = (text) =>{
     this.setState({data : text })
   }
+  closeModal = ()=>{
+    this.setState({modalVisible:false});
+  }
+  stay =(e)=>{
+    e.stopPropagation();
+  }
+  openModal =()=>{
+    this.setState({modalVisible:true});
+  }
   render() {
     return (
       <View style={styles.container}>
         <TextArea onChangeText={this.showText}/>
         <DisplayText text={this.state.data}/>
-        <Overlay visible={true}></Overlay>
+        <Button title="Open Modal" onPress={this.openModal}/>
+        <Overlay visible={this.state.modalVisible} onClose={this.closeModal} onStay={this.stay}></Overlay>
       </View>
    
     );
