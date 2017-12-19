@@ -11,17 +11,18 @@ class BoxText extends Component{
     render(){
         return(
             <View>
-            <Text style={styles.welcome}>
-                Please enter note here
-            </Text>
-            <TextInput
-            style={{width:200,height: 100, borderColor: 'gray', borderWidth: 1}}
-            onChangeText={this.props.changeText}
-            placeholder={'text'}
-            multiline = {true}
-            numberOfLines = {4}
-            value = {this.props.changeText}
-            />
+              <Text style={styles.welcome}>
+                  Please enter note here
+              </Text>
+              <TextInput
+              style={{width:200,height: 100, borderColor: 'gray', borderWidth: 1}}
+              onChangeText={this.props.changeTexts}
+              placeholder={'text'}
+              multiline = {true}
+              numberOfLines = {4}
+              underlineColorAndroid = 'transparent'
+              value = {this.props.changeText}
+              />
             </View>
         )
     }
