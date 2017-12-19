@@ -12,8 +12,7 @@ import {
   View,
   TextInput
 } from 'react-native';
-import InputText from './app/componant/InputText/InputText';
-import BoxTyped from './app/componant/BoxTyped/BoxTyped';
+import BoxTyped from './app/componant/BoxTyped/BoxTyped.component';
 
 export default class App extends Component {
   
@@ -29,8 +28,7 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <InputText onChange={this.onChange}/>
-        <BoxTyped textTyped={this.state.textTyped}/>
+        <BoxTyped onChange={this.onChange} textTyped={this.state.textTyped}/>
       </View>
     );
   }
