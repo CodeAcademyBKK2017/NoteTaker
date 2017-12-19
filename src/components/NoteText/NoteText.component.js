@@ -21,7 +21,7 @@ export default class NoteText extends Component<{}> {
         <Text style={styles.welcome}>
           Title
         </Text>
-        <TextInput value={this.state.textInput} style={[styles.inputText]} onChangeText={this.onChangeText}/>
+        <TextInput underlineColorAndroid='transparent' value={this.state.textInput} style={[styles.inputText]} onChangeText={this.onChangeText}/>
         <Text style={styles.welcome}>
           You typed : {this.state.textInput}
         </Text>
