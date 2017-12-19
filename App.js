@@ -10,10 +10,11 @@ import {
   StyleSheet,
   Text,
   View,
-  TextInput
+  TextInput,Button
 } from 'react-native';
 import TextArea from './app/components/TextArea/TextArea.component';
 import DisplayText from './app/components/DisplayText/DisplayText.component'
+import Overlay from './app/components/Overlay/Overlay.component';
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
     'Cmd+D or shake for dev menu',
@@ -23,7 +24,8 @@ const instructions = Platform.select({
 
 export default class App extends Component<{}> {
   state = {
-    data : ''
+    data : '',
+    modalVisible : false
   }
   showText  = (text) =>{
     this.setState({data : text })
@@ -33,7 +35,9 @@ export default class App extends Component<{}> {
       <View style={styles.container}>
         <TextArea onChangeText={this.showText}/>
         <DisplayText text={this.state.data}/>
+        <Overlay visible={true}></Overlay>
       </View>
+   
     );
   }
 }
