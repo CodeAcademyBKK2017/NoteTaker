@@ -22,7 +22,7 @@ export default class NoteEditor extends Component<{}> {
 		return (
 			<View style={styles.container}>
 				<Text>Title</Text>
-				<TextInput style={styles.textInput} onChangeText={this.onChangeText}/>
+				<TextInput style={styles.textInput} onChangeText={this.onChangeText} placeholder="Type here"/>
 				<NoteNotice note={this.state.note}/>
 			</View>
 		);
