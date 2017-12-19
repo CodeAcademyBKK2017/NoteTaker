@@ -34,11 +34,13 @@ export default class App extends Component {
     nan =(t)=>{
       this.setState({text:t});
     }
-    openModal() {
+    openModal = () => {
       this.setState({modalVisible:true});
     }
-  
-    closeModal() {
+    stopPropagation = (e) => {
+      e.stopPropagation();
+    }
+    closeModal = () => {
       this.setState({modalVisible:false});
     }
   render() {
@@ -48,14 +50,14 @@ export default class App extends Component {
         <Modal
             visible={this.state.modalVisible}
             //animationType={'slide'}
-            onRequestClose={() => this.closeModal()}
+            onRequestClose={this.closeModal}
             transparent
         >
         <TouchableWithoutFeedback
-        onPress={() => this.closeModal()}>
+        onPress={this.closeModal}>
           <View style={styles.modalContainer}>
           <TouchableWithoutFeedback
-        onPress={() => this.stopPropagation}>
+        onPress={this.stopPropagation}>
             <View style={styles.innerContainer}>
               <Text style={{fontSize:14,}}>This is content inside of modal component</Text>
               
@@ -67,7 +69,7 @@ export default class App extends Component {
       <Boxstate nans={this.nan}/>
        <Textstate text={this.state.text} />
        <TouchableOpacity style={styles.bt} 
-              onPress={() => this.openModal()}
+              onPress={this.openModal}
           >
           <Text style={{color:'#000'}}>Nanny</Text>
         </TouchableOpacity>
