@@ -19,6 +19,7 @@ import {
 } from 'react-native';
 import Textstate from './app/component/Textstate';
 import Boxstate from './app/component/Boxstate';
+import Overlay from './app/component/Overlay.component';
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
     'Cmd+D or shake for dev menu',
@@ -37,9 +38,7 @@ export default class App extends Component {
     openModal = () => {
       this.setState({modalVisible:true});
     }
-    stopPropagation = (e) => {
-      e.stopPropagation();
-    }
+    
     closeModal = () => {
       this.setState({modalVisible:false});
     }
@@ -47,27 +46,9 @@ export default class App extends Component {
     console.log(this.state.text);
     return (
       <View style={styles.container}>
-        <Modal
-            visible={this.state.modalVisible}
-            //animationType={'slide'}
-            onRequestClose={this.closeModal}
-            transparent
-        >
-        <TouchableWithoutFeedback
-        onPress={this.closeModal}>
-          <View style={styles.modalContainer}>
-          <TouchableWithoutFeedback
-        onPress={this.stopPropagation}>
-            <View style={styles.innerContainer}>
-              <Text style={{fontSize:14,}}>This is content inside of modal component</Text>
-              
-            </View>
-            </TouchableWithoutFeedback>
-          </View>
-          </TouchableWithoutFeedback>
-        </Modal>
-      <Boxstate nans={this.nan}/>
-       <Textstate text={this.state.text} />
+        <Overlay modalVisible={this.state.modalVisible} closeModal={this.closeModal}/>
+        <Boxstate nans={this.nan}/>
+        <Textstate text={this.state.text} />
        <TouchableOpacity style={styles.bt} 
               onPress={this.openModal}
           >
@@ -82,7 +63,7 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
