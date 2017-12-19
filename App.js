@@ -19,6 +19,7 @@ import {
 } from 'react-native';
 import TextState from './app/component/TextState';
 import BoxText from './app/component/BoxText';
+import Overlay from './app/component/Overlay.component';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -65,19 +66,7 @@ export default class App extends Component {
     console.log(this.state.text);
     return (
       <View style={styles.container}>
-        <Modal visible={this.state.modalVisible} transparent
-            onRequestClose={this.closeModal}>
-          <TouchableWithoutFeedback onPress={this.closeModal}>
-            <View style={styles.modalContainer}>
-              <TouchableWithoutFeedback
-              onPress={this.stopPropagation}>
-                <View style={styles.innerContainer}>
-                  <Text>MODAL</Text>
-                </View>
-              </TouchableWithoutFeedback>
-            </View>
-          </TouchableWithoutFeedback>
-        </Modal>
+        <Overlay modal={this.state.modalVisible} closeModal={this.closeModal} stop={this.stopPropagation}/>
         <BoxText changeTexts={this.changeText}/>
         <TextState text={this.state.text}/>
         {this.touchAble}
@@ -108,19 +97,5 @@ const styles = StyleSheet.create({
     backgroundColor:'red',
     borderRadius:10,
     marginTop:10
-  },
-  modalContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    backgroundColor:  'rgba(37, 8, 10, 0.78)',
-    alignItems:'center'
-  },
-  innerContainer: {
-    backgroundColor: 'white',
-    alignItems: 'center',
-    padding:10,
-    width:'80%',
-    height:200,
-    justifyContent:'center'
   },
 });
