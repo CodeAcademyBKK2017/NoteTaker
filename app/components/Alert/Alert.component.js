@@ -20,7 +20,10 @@ export default class Alert extends Component<{}> {
 					<View style={styles.modalMainContainer}>
 						<TouchableWithoutFeedback onPress={this.stopPropagation}>
 							<View style={styles.modalContentContainer}>
-								<Text>This is content inside of modal component</Text>
+								<Text style={styles.title}>{this.props.title}</Text>
+								<View style={styles.messageContainer}>
+									<Text style={styles.message}>{this.props.message}</Text>
+								</View>
 								<Button title="Close modal" onPress={this.props.onClose}/>
 							</View>
 						</TouchableWithoutFeedback>
@@ -42,9 +45,22 @@ const styles = StyleSheet.create({
 	modalContentContainer: {
 		width: '100%',
 		height: 200,
+		display: 'flex',
 		justifyContent: 'center',
 		alignItems: 'center',
 		backgroundColor: 'white',
 		borderRadius: 10,
+	},
+	title: {
+		padding: 10,
+		fontSize: 20,
+	},
+	messageContainer: {
+		display: 'flex',
+		flex: 1,
+		justifyContent: 'center',
+		alignItems: 'center',
+		padding: 10,
+		fontSize: 14,
 	},
 });

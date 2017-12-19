@@ -40,7 +40,9 @@ export default class App extends Component<{}> {
 			<View style={styles.container}>
 				<NoteEditor/>
 				<Button title="open modal" onPress={this.openModal}/>
-				<Alert visible={this.state.modalVisible} onClose={this.closeModal}/>
+				<Alert visible={this.state.modalVisible} title="My Title !!!"
+					message={`This is content inside of modal component\nThis is content inside of modal component\nThis is content inside of modal component\nThis is content inside of modal component`}
+					onClose={this.closeModal}/>
 			</View>
 		);
 	}
