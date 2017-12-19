@@ -12,12 +12,13 @@ class Boxstate extends Component {
         return (
             <View>
                 <Text style={styles.welcome}>
-                Please enter 
+                Please enter note here
                 </Text>
                 <TextInput
                 style={{width:250,height: 100, borderColor: 'gray', borderWidth: 1}}
-                onChangeText={this.props.nan}
+                onChangeText={this.props.nans}
                 multiline = {true}
+                underlineColorAndroid = 'transparent'
                 numberOfLines = {4}
                 value = {this.props.nan}
                 />
