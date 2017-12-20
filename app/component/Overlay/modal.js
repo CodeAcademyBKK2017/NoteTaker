@@ -23,7 +23,7 @@ class ModalUI extends Component {
                 <TouchableWithoutFeedback onPress = {this.stopPropagation}>
                 <View style={styles.inner}>
                 <Text style={styles.modal}>
-                    <Text>This is content inside of modal component</Text>
+                    This is content inside of modal component
                 </Text>
                 </View>
                 </TouchableWithoutFeedback>
